@@ -1,6 +1,38 @@
-<!-- menu -->
+<button mat-icon-button color="accent" class="hamburger" (click)="sidenav.toggle();" [innerHTML]="isOpened? times: bars"></button>
 
+<mat-sidenav-container>
 
+  <!-- content -->
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 
-<!-- content -->
-<router-outlet></router-outlet>
+  <!-- menu -->
+  <mat-sidenav #sidenav mode="over" position="end" [(opened)]='isOpened'>
+    <mat-nav-list>
+      <!-- Hack for the sidenav focuses the first focusable element upon opening -->
+      <a class="dummy" [routerLink]="''"></a>
+      <a mat-list-item class="list-item" [routerLink]="'/about'">ABOUT</a>
+      <a mat-list-item class="list-item" [routerLink]="'/portfolio'">PORTFOLIO</a>
+      <a mat-list-item class="list-item" [routerLink]="'/contact'">CONTACT</a>
+      <a mat-list-item class="list-item" [routerLink]="'/home'">HOME</a>
+
+      <mat-divider></mat-divider>
+
+      <div class="flex-container">
+        <a class="fa-icon" href="https://github.com/terumik" target="_blank">
+          <i class="fa fa-github-square"></i>
+        </a>
+        <a class="fa-icon" href="https://www.linkedin.com/in/tkusaka/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+        <a class="fa-icon" href="https://twitter.com/t_dvlp" target="_blank">
+          <i class="fa fa-twitter-square"></i>
+        </a>
+      </div>
+
+    </mat-nav-list>
+    <span class="mat-caption copyright">&copy;{{today |  date:'yyyy'}} Terumi Kusaka. All rights reserved.</span>
+  </mat-sidenav>
+
+</mat-sidenav-container>
