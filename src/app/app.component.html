@@ -1,4 +1,8 @@
-<button mat-icon-button color="accent" class="hamburger" (click)="sidenav.toggle();" [innerHTML]="isOpened? times: bars"></button>
+<div class="hamburger" (click)="sidenav.toggle();">
+  <span [@burgerToggleTop]="isOpened ? 'opened' : 'closed'"></span>
+  <span [@burgerToggleCenter]="isOpened ? 'opened' : 'closed'"></span>
+  <span [@burgerToggleBottom]="isOpened ? 'opened' : 'closed'"></span>
+</div>
 
 <mat-sidenav-container>
 
@@ -12,10 +16,10 @@
     <mat-nav-list>
       <!-- Hack for the sidenav focuses the first focusable element upon opening -->
       <a class="dummy" [routerLink]="''"></a>
-      <a mat-list-item class="list-item" [routerLink]="'/about'">ABOUT</a>
-      <a mat-list-item class="list-item" [routerLink]="'/portfolio'">PORTFOLIO</a>
-      <a mat-list-item class="list-item" [routerLink]="'/contact'">CONTACT</a>
-      <a mat-list-item class="list-item" [routerLink]="'/home'">HOME</a>
+      <a mat-list-item class="list-item" [routerLink]="'/about'" (click)="sidenav.toggle()">ABOUT</a>
+      <a mat-list-item class="list-item" [routerLink]="'/portfolio'" (click)="sidenav.toggle();">PORTFOLIO</a>
+      <a mat-list-item class="list-item" [routerLink]="'/contact'" (click)="sidenav.toggle();">CONTACT</a>
+      <a mat-list-item class="list-item" [routerLink]="'/home'" (click)="sidenav.toggle();">HOME</a>
 
       <mat-divider></mat-divider>
 

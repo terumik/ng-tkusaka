@@ -5,28 +5,39 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './shared/angular-material.module';
-// import { FlexLayoutModule } from '@angular/flex-layout';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { AboutComponent } from './about/about.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
+import { PortfoliosComponent } from './portfolios/portfolios.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { PortfolioDetailComponent } from './portfolios/portfolio-detail/portfolio-detail.component';
+import { PortfolioListComponent } from './portfolios/portfolio-list/portfolio-list.component';
+import { PortfolioItemComponent } from './portfolios/portfolio-list/portfolio-item/portfolio-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    PortfolioComponent,
+    PortfoliosComponent,
     ContactComponent,
-    HomeComponent
+    HomeComponent,
+    PortfolioDetailComponent,
+    PortfolioListComponent,
+    PortfolioItemComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    // FlexLayoutModule,
-    AngularFontAwesomeModule,
+    FontAwesomeModule,
+    FlexLayoutModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

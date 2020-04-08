@@ -1,34 +1,84 @@
-<!-- <main>
-  <header class="mat-display-2">ABOUT</header>
+<main>
+  <h1 class="mat-display-2" @fadeIn>ABOUT</h1>
 
-  <section class="flex-container">
-    <div class="flex-item col-sm-center">
-      <img class="profile-photo" src="../../assets/images/terumi.jpg" alt="Photo of Terumi Kusaka">
+  <section class="profile" @slideIn>
+    <h2 class="d-none">About Terumi Kusaka</h2>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap.xs="1rem" fxLayoutGap="1.5rem">
+      <div fxLayout="row" fxLayoutAlign.xs="center" fxLayoutAlign="start center">
+        <img class="photo" src="../../assets/images/terumi.jpg" alt="Photo of Terumi Kusaka">
+      </div>
+      <div>
+        <p>
+          I am a Web Developer more than 2 years of experience focusing on creating inclusive websites.
+        </p>
+        <p>
+          My previous studies and experiences in community support service fields allow me to develop a strong sense of how tools and systems have impacted on people's lifestyles.
+        </p>
+        <p>
+          My goal is to transfer my passion and skills to the web development so that I can empower people through modern front-end and back-end technologies.
+        </p>
+      </div>
     </div>
-    <div class="flex-item">
-      <p>
-        I am a Web Developer focusing on creating inclusive websites and currently finishing my post-graduate
-        certificate in Web Development at Humber College.
-      </p>
-      <p>
-        My previous studies and experiences in community support service fields allow me to develop a strong sense of
-        how tools and systems have impacted on people's lifestyles.
-      </p>
-      <p>
-        My goal is to transfer my passion and skills to the web development so that I can empower people through modern
-        front-end and back-end technologies.
-      </p>
+    <div class="button-wrapper">
+      <button mat-raised-button color="primary">View Resume</button>
     </div>
-
   </section>
 
+  <section class="skills" fxLayout="row" fxLayout.xs="column" fxLayoutGap.xs="0rem" fxLayoutGap="1.5rem"
+    fxLayoutAlign.xs="center center" fxLayoutAlign="center start"
+    [@slideIn]="{value: 'slideIn', params: {positionTop: '1.5rem', positionLeft: '0'}}">
+    <h2 class="d-none">Technical Skills</h2>
+    <div class="column">
+      <div class="icon color-accent"><i class="fa fa-code"></i></div>
+      <ul class="list">
+        <li class="list-item" *ngFor="let fs of frontendSkills">{{fs}}</li>
+      </ul>
+    </div>
+    <div class="column">
+      <div class="icon"><i class="fa fa-database"></i></div>
+      <ul class="list">
+        <li class="list-item" *ngFor="let bs of backendSkills">{{bs}}</li>
+      </ul>
+    </div>
+    <div class="column">
+      <div class="icon" color="accent"><i class="fa fa-cubes"></i></div>
+      <ul class="list">
+        <li class="list-item" *ngFor="let os of otherSkills">{{os}}</li>
+      </ul>
+    </div>
+  </section>
 
+  <section class="experiences"
+  fxLayout="row" fxLayout.lt-md="column" fxLayoutGap.xs="0rem" fxLayoutGap="1.5rem" @slideIn>
+    <div class="column">
+      <h2>Education</h2>
+      <ul class="schools">
+        <li *ngFor="let e of educations">
+          <ul>
+            <li>{{e.fieldOfStudy}}</li>
+            <li>{{e.schoolName}}, {{e.schoolLocation}}</li>
+            <li>{{e.start | date: 'LLL yyyy'}} - {{e.end | date: 'LLL yyyy' }}</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="column">
+      <h2>Work Experience</h2>
+      <ul class="companies">
+        <li *ngFor="let w of workExperiences">
+          <ul>
+            <li>{{w.title}}</li>
+            <li>{{w.companyName}}, {{w.companyLocation}}</li>
+            <li>{{w.start | date: 'LLL yyyy'}} - {{w.end | date: 'LLL yyyy' }}</li>
+            <ul class="duties">
+              <li *ngFor="let duty of w.duties">
+                - {{duty}}
+              </li>
+            </ul>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-</main> -->
-<div class="container">
-  <div class="item item1">1</div>
-  <div class="item item2">2</div>
-  <div class="item item3">3</div>
-  <div class="item item4">4</div>
-  <div class="item item5">5</div>
- </div>
+</main>

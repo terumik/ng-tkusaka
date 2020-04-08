@@ -1,0 +1,79 @@
+<main>
+  <section class="basic-info"
+  [@fadeIn]="{value: 'fadeIn', params: {duration: 1}}">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign.lt-md="center center" fxLayoutGap.lt-md="2rem">
+      <img class="coverImage" [src]="portfolio.coverImg" alt="">
+      <div class="portfolio-info" fxLayout="column" fxLayoutAlign="center left">
+        <h1 class="mat-display-1">
+          {{portfolio.projectName}}
+        </h1>
+        <span class="line"></span>
+        <ul class="detail mat-small">
+          <li>Client: {{portfolio.client}}</li>
+          <li>Production Period: {{portfolio.durationStart | date: 'MMM yyyy'}} -
+            {{portfolio.durationEnd | date: 'MMM yyyy'}}</li>
+          <li>Responsibilities:
+            <ul>
+              <li *ngFor="let r of portfolio.responsibilities">{{r}}</li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="description" @fadeIn>
+    <div class="mat-h2">{{portfolio.description.title}}</div>
+    <p>{{portfolio.description.text}}</p>
+  </section>
+
+  <section class="action-button" @fadeIn>
+    <div fxLayout="row" fxLayoutAlign="space-evenly">
+      <a href="{{portfolio.demoUrl}}" target="_blank" mat-flat-button color="primary">Demo</a>
+      <a href="{{portfolio.gitUrl}}" target="_blank" mat-flat-button color="primary">Git</a>
+    </div>
+  </section>
+
+  <section class="technologies" @fadeIn>
+    <div class="skills" fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="0rem" fxLayoutGap="1.5rem"
+      fxLayoutAlign.xs="center center" fxLayoutAlign="center start">
+      <div class="column" fxLayoutGap.lt-sm="2rem">
+        <div class="icon color-accent"><i class="fa fa-code"></i></div>
+        <ul class="list">
+          <li class="list-item" *ngFor="let skill of portfolio.skills.front">{{skill}}</li>
+        </ul>
+      </div>
+      <div class="column">
+        <div class="icon"><i class="fa fa-database"></i></div>
+        <ul class="list">
+          <li class="list-item" *ngFor="let skill of portfolio.skills.back">{{skill}}</li>
+        </ul>
+      </div>
+      <div class="column">
+        <div class="icon" color="accent"><i class="fa fa-cubes"></i></div>
+        <ul class="list">
+          <li class="list-item" *ngFor="let skill of portfolio.skills.others">{{skill}}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" @fadeIn>
+    <div class="feature" *ngFor="let f of portfolio.features">
+      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="2rem" fxLayoutAlign="left center">
+        <img [src]="f['imgUrl']">
+        <div class="description">
+          <div class="mat-h4">{{f['title']}}</div>
+          <div class="line"></div>
+          <p>{{f['text']}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section @fadeIn>
+    <a class="back-button" mat-stroked-button color="primary" [routerLink]="'/portfolio'">Back</a>
+  </section>
+
+</main>

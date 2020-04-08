@@ -22,13 +22,13 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/custom-theme.css",
+              "src/custom-theme.scss",
               "src/styles.scss",
               "./node_modules/font-awesome/scss/font-awesome.scss"
             ],
@@ -47,7 +47,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -56,6 +55,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -124,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "ng-tkusaka"
+  "defaultProject": "ng-tkusaka",
+  "cli": {
+    "analytics": "ef87c208-12d0-4282-b412-818472df404f"
+  }
 }

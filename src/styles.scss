@@ -1,6 +1,39 @@
-@import './custom-theme.css';
+@import './custom-theme.scss';
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
+
+$break-xs: 599px;
+$break-md: 960px;
+$break-lg: 1280px;
+$break-xl: 1920px;
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; line-height: 1.3rem;}
+
+main {
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: $break-xs) {
+    padding: 10rem 1.5rem;
+  }
+
+  @media screen and (min-width: $break-xs) and (max-width: $break-md) {
+    padding: 10rem 5rem;
+  }
+
+  @media screen and (min-width: $break-md) and (max-width: $break-lg) {
+    padding: 10rem 5%;
+  }
+
+  @media screen and (min-width: $break-lg) and (max-width: $break-xl) {
+    padding: 10rem 5%;
+  }
+
+  @media screen and (min-width: $break-xl) {
+    padding: 10rem 10%;
+  }
+}
+
 

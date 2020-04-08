@@ -1,0 +1,110 @@
+@import "../../../custom-theme.scss";
+
+$theme-primary: mat-palette($mat-primary, main, lighter, darker);
+$theme-accent: mat-palette($mat-accent, main, lighter, darker);
+
+section {
+  margin: 10rem auto 3rem;
+}
+.line {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background-color: #464646;
+  margin: 1rem 0 2rem;
+}
+
+section.basic-info {
+  h1 {
+    margin: 0;
+  }
+  .coverImage {
+    max-width: 540px;
+    width: 90%;
+    border-radius: 2px;
+    -webkit-box-shadow: 2px 2px 4px 0px #999;
+    -moz-box-shadow: 2px 2px 4px 0px #999;
+    box-shadow: 2px 2px 4px 0px #999;
+  }
+  .portfolio-info {
+    margin-left: 2rem;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 0;
+    }
+    .detail {
+      ul {
+        padding-left: 1rem;
+      }
+    }
+  }
+}
+
+section.description {
+  p {
+    margin-left: 1rem;
+  }
+}
+
+section.action-button {
+  a {
+    width: 35%;
+  }
+}
+
+section.technologies {
+  .skills {
+    .icon {
+      text-align: center;
+      border-radius: 50%;
+      height: 100px;
+      width: 100px;
+      margin: 0 auto;
+      background-color: mat-color($theme-primary);
+      .fa {
+        color: #fff;
+        font-size: 3rem;
+        line-height: 100px;
+      }
+    }
+    .column {
+      margin: 0 10%;
+      padding-bottom: 2rem;
+      .list {
+        width: 150px;
+        padding: 0;
+        margin: 1rem auto 0rem;
+      }
+      .list-item {
+        text-align: center;
+        height: 1.8rem;
+        display: block;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+section.features {
+  img {
+    width: 220px;
+    height: 220px;
+    border-radius: 2px;
+    -webkit-box-shadow: 2px 2px 4px 0px #999;
+    -moz-box-shadow: 2px 2px 4px 0px #999;
+    box-shadow: 2px 2px 4px 0px #999;
+  }
+  .feature {
+    margin-top: 2rem;
+    .description {
+      width: 90%;
+    }
+  }
+}
+
+.back-button {
+  width: 35%;
+  display: block;
+  margin: 0 auto;
+}

@@ -1,1 +1,32 @@
-<p>contact works!</p>
+<main>
+  <mat-card>
+    <mat-card-title>Get In Touch</mat-card-title>
+    <mat-spinner *ngIf="isProgress" class="snipper" color="accent" diameter=60></mat-spinner>
+
+    <mat-card-content>
+      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput required ngModel name="name">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput required ngModel name="email">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Message</mat-label>
+          <textarea matInput required minlength="20" ngModel name="msg" #msg="ngModel"></textarea>
+        </mat-form-field>
+        <span class="error" *ngIf="msg.touched && msg.invalid">Message must be longer than 20 characters.</span>
+
+        <mat-card-actions>
+          <div>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!authForm.valid">Send</button>
+            <button mat-raised-button type="button" (click)="onCancel()">Cancel</button>
+          </div>
+        </mat-card-actions>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+</main>

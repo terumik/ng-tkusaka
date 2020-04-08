@@ -1,9 +1,13 @@
-import { Component, Input, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Animations } from './shared/animation';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    Animations.burgerToggleTop, Animations.burgerToggleCenter, Animations.burgerToggleBottom
+  ],
 })
 
 
@@ -20,5 +24,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.today = Date.now();
   }
+
+
 
 }

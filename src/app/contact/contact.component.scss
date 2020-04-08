@@ -1,0 +1,46 @@
+@import "../../custom-theme.scss";
+
+$theme-warn: mat-palette($mat-warn, main, lighter, darker);
+
+mat-card {
+  width: 60%;
+  margin: 0 auto;
+  .snipper {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  mat-card-title {
+    text-align: center;
+    margin: 1rem auto;
+  }
+  form {
+    width: 80%;
+    margin: 1rem auto;
+  }
+  mat-form-field {
+    display: flex;
+    flex-direction: column;
+  }
+  mat-card-actions {
+    text-align: end;
+  }
+  textarea {
+    height: 80px;
+  }
+  button {
+    margin: 0;
+    width: 100px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+}
+
+.error {
+  color: mat-color($theme-warn);
+  font-size: 0.8rem;
+}
