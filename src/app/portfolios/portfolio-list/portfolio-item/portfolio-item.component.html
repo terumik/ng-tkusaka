@@ -1,21 +1,28 @@
 <mat-card class="list-item">
-  <mat-card-header>
+  <mat-card-header [@slideIn]="{value: 'slideIn', params: {positionTop: '0.8rem', positionLeft: '0'}}">
     <mat-card-title>{{portfolio.projectName}}</mat-card-title>
     <mat-card-subtitle>
       <span class="skill" *ngFor="let s of portfolio.featuredSkills">{{s}}</span>
     </mat-card-subtitle>
   </mat-card-header>
-    <img mat-card-image [src]="portfolio.coverImg" alt="Photo of a projectName">
-  <mat-card-content>
+    <img mat-card-image [@slideIn]="{value: 'slideIn', params: {positionTop: '0.8rem', positionLeft: '0'}}" [src]="portfolio.coverImg" alt="Photo of a projectName">
+  <mat-card-content [@slideIn]="{value: 'slideIn', params: {positionTop: '0.8rem', positionLeft: '0'}}">
     <p>
       {{ portfolio.description.title}}
     </p>
   </mat-card-content>
   <mat-card-actions fxLayout="column">
-    <a class="details-button" mat-flat-button color="primary" [routerLink]="[portfolio.id]">Details</a>
-    <div fxLayout="row" class="action-buttons">
+    <a class="details-button" [@slideIn]="{value: 'slideIn', params: {positionTop: '0.8rem', positionLeft: '0'}}" mat-flat-button color="primary" [routerLink]="[portfolio.id]">Details</a>
+    <div fxLayout="row" [@slideIn]="{value: 'slideIn', params: {positionTop: '0.8rem', positionLeft: '0'}}" class="action-buttons">
       <a href="{{portfolio.demoUrl}}" target="_blank" mat-stroked-button fxFlex color="primary">Demo</a>
       <a href="{{portfolio.gitUrl}}" target="_blank" mat-stroked-button fxFlex color="primary">Git</a>
     </div>
   </mat-card-actions>
+  <!-- <div class="test" fxLayout="column">
+    <a [@slideIn] class="details-button" mat-flat-button color="primary" [routerLink]="[portfolio.id]">Details</a>
+    <div fxLayout="row" class="action-buttons">
+      <a [@slideIn] href="{{portfolio.demoUrl}}" target="_blank" mat-stroked-button fxFlex color="primary">Demo</a>
+      <a [@slideIn] href="{{portfolio.gitUrl}}" target="_blank" mat-stroked-button fxFlex color="primary">Git</a>
+    </div>
+  </div> -->
 </mat-card>
