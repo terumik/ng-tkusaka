@@ -27,24 +27,29 @@ export class ContactComponent implements OnInit, OnDestroy {
 
     this.isProgress = true;
 
-    const inquiry = new Inquiry(form.value.name, form.value.email, form.value.msg);
+    if (form.value.msg.search('://') || form.value.msg.search('www')) {
+      this._snackBar.open('Please remove a URL from your message for sending an inquiry.', 'OK');
+    } else {
+      const inquiry = new Inquiry(form.value.name, form.value.email, form.value.msg);
 
-    this.inquirySub = this.inquiryService.sendInquiry(inquiry).subscribe((resData) => {
-      console.log('Log in Component: ', resData); // success
+      this.inquirySub = this.inquiryService.sendInquiry(inquiry).subscribe((resData) => {
+        console.log('Response from server ', resData); // success
 
-      if (resData.isEmptyContent) {
-        this._snackBar.open('Failed to deliver your message. Please try again.', 'OK');
-      } else {
-        if (resData.isEmailSent) {
-          this._snackBar.open('Thank you! Your message has been delivered!', 'OK');
-          form.resetForm();
-        } else if (!resData.isEmailSent) {
-          this._snackBar.open('An unknown error occurred. Please try again.', 'OK');
+        if (resData.isEmptyContent) {
+          this._snackBar.open(resData.serverRes, 'OK');
+        } else {
+          if (resData.isEmailSent) {
+            this._snackBar.open(resData.serverRes, 'OK');
+            form.resetForm();
+          } else if (!resData.isEmailSent) {
+            this._snackBar.open(resData.serverRes, 'OK');
+          }
         }
-      }
 
-      this.isProgress = false;
-    });
+      });
+    }
+
+    this.isProgress = false;
   }
 
   onCancel() {

@@ -1,3 +1,6 @@
+// mailer is now done by php (hosting server not support node.js)
+// this is an example for nodemailer
+
 const express = require("express");
 const bodyParser = require("body-parser");
 

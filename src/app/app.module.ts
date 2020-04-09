@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PortfolioDetailComponent } from './portfolios/portfolio-detail/portfolio-detail.component';
 import { PortfolioListComponent } from './portfolios/portfolio-list/portfolio-list.component';
 import { PortfolioItemComponent } from './portfolios/portfolio-list/portfolio-item/portfolio-item.component';
+import { ResumeComponent } from './resume/resume.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { PortfolioItemComponent } from './portfolios/portfolio-list/portfolio-it
     PortfolioDetailComponent,
     PortfolioListComponent,
     PortfolioItemComponent,
+    ResumeComponent,
   ],
   imports: [
     BrowserModule,
