@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { PortfoliosComponent } from './portfolios/portfolios.component';
 import { ContactComponent } from './contact/contact.component';
@@ -10,8 +9,7 @@ import { ResumeComponent } from './resume/resume.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent},
+  { path: '', component: HomeComponent, pathMatch: 'full'},
   { path: 'about', component: AboutComponent },
   { path: 'resume', component: ResumeComponent },
   { path: 'contact', component: ContactComponent },

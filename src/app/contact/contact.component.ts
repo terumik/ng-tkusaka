@@ -27,8 +27,8 @@ export class ContactComponent implements OnInit, OnDestroy {
 
     this.isProgress = true;
 
-    if (form.value.msg.search('://') || form.value.msg.search('www')) {
-      this._snackBar.open('Please remove a URL from your message for sending an inquiry.', 'OK');
+    if (form.value.msg.search(':/|www') !== -1) {
+      this._snackBar.open('Please remove a link from your message for sending an inquiry.', 'OK');
     } else {
       const inquiry = new Inquiry(form.value.name, form.value.email, form.value.msg);
 

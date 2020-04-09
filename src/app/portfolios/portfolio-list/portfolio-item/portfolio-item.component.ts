@@ -22,8 +22,7 @@ export class PortfolioItemComponent implements OnInit {
   }
 
   onDetails(id) {
-    console.log(id);
-    this.router.navigate([id], {relativeTo: this.route});
+    this.router.navigate([id], { relativeTo: this.route });
   }
 
 }

@@ -19,8 +19,6 @@ export class PortfoliosComponent implements OnInit {
 
   ngOnInit() {
     this.portfolios = this.portfolioService.getPortfolios();
-    console.log(this.portfolios);
-
   }
 
 }

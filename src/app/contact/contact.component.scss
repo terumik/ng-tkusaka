@@ -3,7 +3,7 @@
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);
 
 mat-card {
-  width: 60%;
+  max-width: 650px;
   margin: 0 auto;
   .snipper {
     position: absolute;

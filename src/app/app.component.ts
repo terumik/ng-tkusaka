@@ -25,6 +25,8 @@ export class AppComponent implements OnInit {
     this.today = Date.now();
   }
 
-
-
+  // set scroll bar on top
+  onActivate() {
+    document.getElementsByTagName('mat-sidenav-content')[0].scrollTo(0, 0);
+  }
 }

@@ -8,7 +8,7 @@
 
   <!-- content -->
   <mat-sidenav-content>
-    <router-outlet></router-outlet>
+    <router-outlet (activate)=onActivate()></router-outlet>
   </mat-sidenav-content>
 
   <!-- menu -->
@@ -19,7 +19,7 @@
       <a mat-list-item class="list-item" [routerLink]="'/about'" (click)="sidenav.toggle()">ABOUT</a>
       <a mat-list-item class="list-item" [routerLink]="'/portfolio'" (click)="sidenav.toggle();">PORTFOLIO</a>
       <a mat-list-item class="list-item" [routerLink]="'/contact'" (click)="sidenav.toggle();">CONTACT</a>
-      <a mat-list-item class="list-item" [routerLink]="'/home'" (click)="sidenav.toggle();">HOME</a>
+      <a mat-list-item class="list-item" [routerLink]="'/'" (click)="sidenav.toggle();">HOME</a>
 
       <mat-divider></mat-divider>
 

@@ -3,7 +3,10 @@
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
 
-section {
+section.description,
+.action-button,
+.technologies,
+.features {
   margin: 10rem auto 3rem;
 }
 .line {
