@@ -1,6 +1,5 @@
 <main>
-  <section class="basic-info"
-  [@fadeIn]="{value: 'fadeIn', params: {duration: 1}}">
+  <section class="basic-info" [@fadeIn]="{value: 'fadeIn', params: {duration: 1}}">
     <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign.lt-md="center center" fxLayoutGap.lt-md="2rem">
       <img class="coverImage" [src]="portfolio.coverImg" alt="">
       <div class="portfolio-info" fxLayout="column" fxLayoutAlign="center left">
@@ -36,36 +35,46 @@
   </section>
 
   <section class="technologies" @fadeIn>
-    <div class="skills" fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="0rem" fxLayoutGap="1.5rem"
-      fxLayoutAlign.xs="center center" fxLayoutAlign="center start">
-      <div class="column" fxLayoutGap.lt-sm="2rem">
-        <div class="icon color-accent"><i class="fa fa-code"></i></div>
-        <ul class="list">
-          <li class="list-item" *ngFor="let skill of portfolio.skills.front">{{skill}}</li>
+    <section class="skills" @fadeIn>
+      <h2>Technical Skills</h2>
+      <div fxLayout="row">
+        <div fxFlexAlign="center">
+          <div class="icon"><i class="fa fa-code"></i></div>
+        </div>
+        <ul class="list" fxFlexAlign="center">
+          <li class="list-item" *ngFor="let fs of portfolio.skills.front">
+            <span class="whitespace"></span>{{fs}}
+          </li>
         </ul>
       </div>
-      <div class="column">
-        <div class="icon"><i class="fa fa-database"></i></div>
-        <ul class="list">
-          <li class="list-item" *ngFor="let skill of portfolio.skills.back">{{skill}}</li>
+      <div fxLayout="row">
+        <div fxFlexAlign="center">
+          <div class="icon"><i class="fa fa-database"></i></div>
+        </div>
+        <ul class="list" fxFlexAlign="center">
+          <li class="list-item" *ngFor="let bs of portfolio.skills.back">
+            <span class="whitespace"></span>{{bs}}
+          </li>
         </ul>
       </div>
-      <div class="column">
-        <div class="icon" color="accent"><i class="fa fa-cubes"></i></div>
-        <ul class="list">
-          <li class="list-item" *ngFor="let skill of portfolio.skills.others">{{skill}}</li>
+      <div fxLayout="row">
+        <div fxFlexAlign="center">
+          <div class="icon"><i class="fa fa-cubes"></i></div>
+        </div>
+        <ul class="list" fxFlexAlign="center">
+          <li class="list-item" *ngFor="let ot of portfolio.skills.others">
+            <span class="whitespace"></span>{{ot}}
         </ul>
       </div>
-    </div>
+    </section>
   </section>
 
   <section class="features" @fadeIn>
     <div class="feature" *ngFor="let f of portfolio.features">
-      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="2rem" fxLayoutAlign="left center">
+      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="1rem" fxLayoutGap="2rem" fxLayoutAlign="left center">
         <img [src]="f['imgUrl']">
         <div class="description">
-          <div class="mat-h4">{{f['title']}}</div>
-          <div class="line"></div>
+          <div class="mat-h4 title">{{f['title']}}</div>
           <p>{{f['text']}}</p>
         </div>
       </div>

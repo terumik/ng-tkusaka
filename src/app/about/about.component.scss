@@ -1,16 +1,22 @@
 @import "../../custom-theme.scss";
 
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
-$theme-accent: mat-palette($mat-accent, main, lighter, darker);
 
 h1 {
   text-align: center;
 }
-
+h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-top: 0;
+}
 section {
   margin: 10rem auto 3rem;
 }
-
+.whitespace {
+  display: inline-block;
+  width: 0.8rem;
+}
 .d-none {
   display: none;
 }
@@ -31,39 +37,33 @@ section {
 .skills {
   .icon {
     text-align: center;
+    border: 3px white solid;
     border-radius: 50%;
-    height: 100px;
-    width: 100px;
-    margin: 0 auto;
+    height: 40px;
+    width: 40px;
     background-color: mat-color($theme-primary);
     .fa {
       color: #fff;
-      font-size: 3rem;
-      line-height: 100px;
+      font-size: 1rem;
+      line-height: 40px;
     }
   }
-  .column {
-    margin: 0 10%;
-    .list {
-      width: 150px;
-      padding: 0;
-      margin: 1rem auto 0rem;
-    }
-    .list-item {
-      text-align: center;
-      height: 1.8rem;
-      display: block;
-      margin-bottom: 0;
-    }
+  .list {
+    background-color: #eee;
+    border-radius: 3px;
+    width: 100%;
+    margin: 0.5rem auto;
+    padding: 0.5rem 20px;
+    position: relative;
+    left: -20px;
+    z-index: -1;
+  }
+  .list-item {
+    display: inline-block;
   }
 }
 
 .experiences {
-  h2 {
-    font-size: 1.2rem;
-    font-weight: normal;
-    margin-top: 0;
-  }
   .column {
     width: 100%;
   }
@@ -75,13 +75,15 @@ section {
   .companies {
     margin: 1.5rem 0;
     > li {
-      border-left: mat-color($theme-accent) solid 1px;
       margin: 1rem;
       padding-left: 1rem;
     }
     .duties {
       margin-top: 0.5rem;
       padding-left: 1rem;
+      > li {
+        margin-bottom: 0.4rem;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-export class workExperience {
+export class WorkExperience {
   constructor(
     public title: string,
     public companyName: string,

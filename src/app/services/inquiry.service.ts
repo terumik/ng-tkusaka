@@ -19,7 +19,7 @@ export class InquiryService {
 
 
   sendInquiry(inquiry: Inquiry): Observable<{ isEmailSent: boolean, isEmptyContent: boolean, serverRes: string }> {
-    const url = 'https://ng-tkusaka.tkusaka.com/mailer.php';
+    const url = 'https://tkusaka.com/mailer.php';
 
     // information send back to contact.component.ts
     return this.http.post<{ isEmailSent: boolean, isEmptyContent: boolean, serverRes: string }>(url, inquiry, this.httpOptions);
