@@ -1,18 +1,14 @@
 @import "../../../custom-theme.scss";
 
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
-$theme-accent: mat-palette($mat-accent, main, lighter, darker);
 
-section.description,
-.action-button,
-.technologies,
-.features {
-  margin: 10rem auto 3rem;
-}
 h2 {
   font-size: 1.2rem;
   font-weight: normal;
   margin-top: 0;
+}
+.d-none {
+  display: none;
 }
 .line {
   display: block;
@@ -25,6 +21,12 @@ h2 {
   display: inline-block;
   width: 0.8rem;
 }
+
+section.technologies,
+section.project-detail {
+  margin: 2rem auto 6rem;
+}
+
 section.basic-info {
   h1 {
     margin: 0;
@@ -46,22 +48,24 @@ section.basic-info {
       padding-left: 0;
     }
     .detail {
-      ul {
+      .responsibilities {
         padding-left: 1rem;
       }
+      .external-link {
+        .link-item {
+          width: 2rem;
+          height: 2rem;
+          display: inline-block;
+          text-align: center;
+          margin-right: 0.5rem;
+        }
+        .fa {
+          color: #00000098;
+          font-size: 1rem;
+          line-height: 2rem;
+        }
+      }
     }
-  }
-}
-
-section.description {
-  p {
-    margin-left: 1rem;
-  }
-}
-
-section.action-button {
-  a {
-    width: 35%;
   }
 }
 
@@ -96,29 +100,23 @@ section.technologies {
   }
 }
 
-section.features {
-  img {
-    width: 220px;
-    height: 220px;
-    border-radius: 2px;
-    -webkit-box-shadow: 2px 2px 4px 0px #999;
-    -moz-box-shadow: 2px 2px 4px 0px #999;
-    box-shadow: 2px 2px 4px 0px #999;
+section.demo-video {
+  video {
+    display: block;
+    margin: 0 auto;
+    outline: none;
+    max-width: 90%;
   }
+}
 
-  .feature {
-    margin-bottom: 4rem;
-    .description {
-      width: 90%;
-      .title, p {
-        margin: 0;
-      }
-    }
+section.project-detail {
+  p {
+    margin-left: 1rem;
   }
 }
 
 .back-button {
   width: 35%;
   display: block;
-  margin: 0 auto;
+  margin: 3rem auto;
 }

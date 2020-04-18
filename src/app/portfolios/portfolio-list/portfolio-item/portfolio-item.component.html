@@ -1,24 +1,24 @@
 <mat-card class="list-item">
-  <mat-card-header [@slideIn]="{value: 'slideIn', params: {positionTop: '0.8rem', positionLeft: '0'}}">
+  <mat-card-header @slideIn>
     <mat-card-title>{{portfolio.projectName}}</mat-card-title>
     <mat-card-subtitle>
       <span class="skill" *ngFor="let s of portfolio.featuredSkills">{{s}}</span>
     </mat-card-subtitle>
   </mat-card-header>
-  <a [routerLink]="[portfolio.id]" [@slideIn]="{value: 'slideIn', params: {positionTop: '0.8rem', positionLeft: '0'}}">
+  <a [routerLink]="[portfolio.id]" @slideIn>
     <img mat-card-image [src]="portfolio.coverImg" alt="Photo of a portfolio.">
   </a>
-  <mat-card-content [@slideIn]="{value: 'slideIn', params: {positionTop: '0.8rem', positionLeft: '0'}}">
+  <mat-card-content @slideIn>
     <p>
-      {{ portfolio.description.title}}
+      {{ portfolio.projectDetail.header}}
     </p>
   </mat-card-content>
   <mat-card-actions fxLayout="column">
-    <a class="details-button" [@slideIn]="{value: 'slideIn', params: {positionTop: '0.8rem', positionLeft: '0'}}"
+    <a class="details-button" @slideIn
       mat-flat-button color="primary" [routerLink]="[portfolio.id]">Details</a>
-    <div fxLayout="row" [@slideIn]="{value: 'slideIn', params: {positionTop: '0.8rem', positionLeft: '0'}}"
+    <div fxLayout="row" @slideIn
       class="action-buttons">
-      <a href="{{portfolio.demoUrl}}" target="_blank" mat-stroked-button fxFlex color="primary">Demo</a>
+      <a *ngIf="portfolio.demoUrl" href="{{portfolio.demoUrl}}" target="_blank" mat-stroked-button fxFlex color="primary">Demo</a>
       <a href="{{portfolio.gitUrl}}" target="_blank" mat-stroked-button fxFlex color="primary">Git</a>
     </div>
   </mat-card-actions>

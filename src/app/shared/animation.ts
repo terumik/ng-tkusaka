@@ -1,4 +1,4 @@
-import { state, trigger, style, transition, animate, sequence, query, animation } from '@angular/animations';
+import { state, trigger, style, transition, animate, sequence, query } from '@angular/animations';
 
 
 export const Animations = {
@@ -37,7 +37,7 @@ export const Animations = {
           left: '0',
         })), {optional: true}),
       ]),
-    ], {params: {duration: 2, animationStyle: 'ease-in', positionTop: '0', positionLeft: '1.5rem'}})
+    ], {params: {duration: 1, animationStyle: 'ease-in', positionTop: '0.5rem', positionLeft: '0'}})
   ]),
 
   // -- For Hamburger Menu

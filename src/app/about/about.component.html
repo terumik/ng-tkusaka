@@ -1,7 +1,7 @@
 <main>
   <h1 class="mat-display-2" @fadeIn>ABOUT</h1>
 
-  <section class="profile" [@slideIn]="{value: 'slideIn', params: {positionTop: '1.5rem', positionLeft: '0'}}">
+  <section class="profile" @slideIn>
     <h2 class="d-none">About Terumi Kusaka</h2>
     <div fxLayout="row" fxLayout.xs="column" fxLayoutGap.xs="1rem" fxLayoutGap="1.5rem">
       <div fxLayout="row" fxLayoutAlign.xs="center" fxLayoutAlign="start center">
@@ -26,7 +26,7 @@
     </div>
   </section>
 
-  <section class="skills" @fadeIn>
+  <section class="skills" [@fadeIn]="{value: 'fadeIn', params: {duration: 1}}">
     <h2>Technical Skills</h2>
     <div fxLayout="row">
       <div fxFlexAlign="center">
@@ -60,7 +60,7 @@
   </section>
 
   <section class="experiences" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap.xs="0rem" fxLayoutGap="1.5rem"
-    @fadeIn>
+    [@fadeIn]="{value: 'fadeIn', params: {duration: 1}}">
     <div class="column">
       <h2>Education</h2>
       <ul class="schools">

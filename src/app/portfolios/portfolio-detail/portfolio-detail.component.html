@@ -1,7 +1,7 @@
-<main>
-  <section class="basic-info" [@fadeIn]="{value: 'fadeIn', params: {duration: 1}}">
+<main [@fadeIn]="{value: 'fadeIn', params: {duration: 1}}">
+  <section class="basic-info">
     <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign.lt-md="center center" fxLayoutGap.lt-md="2rem">
-      <img class="coverImage" [src]="portfolio.coverImg" alt="">
+      <img class="coverImage" [src]="portfolio.coverImg" alt="cover image for the portfolio">
       <div class="portfolio-info" fxLayout="column" fxLayoutAlign="center left">
         <h1 class="mat-display-1">
           {{portfolio.projectName}}
@@ -9,11 +9,22 @@
         <span class="line"></span>
         <ul class="detail mat-small">
           <li>Client: {{portfolio.client}}</li>
-          <li>Production Period: {{portfolio.durationStart | date: 'MMM yyyy'}} -
-            {{portfolio.durationEnd | date: 'MMM yyyy'}}</li>
+          <li>Production Period: {{portfolio.workingPeriod.start | date: 'MMM yyyy'}} -
+            <span *ngIf="portfolio.workingPeriod.end == null">ongoing</span>
+            {{portfolio.workingPeriod.end | date: 'MMM yyyy'}}</li>
           <li>Responsibilities:
-            <ul>
+            <ul class="responsibilities">
               <li *ngFor="let r of portfolio.responsibilities">{{r}}</li>
+            </ul>
+          </li>
+          <li>
+            <ul class="external-link" fxLayout="row">
+              <li *ngIf="portfolio.demoUrl"><a class="link-item" href="{{portfolio.demoUrl}}" target="_blank">
+                <span class="fa fa-home"></span>
+              </a></li>
+              <li><a class="link-item" href="{{portfolio.gitUrl}}" target="_blank">
+                <span class="fa fa-github-alt"></span>
+              </a></li>
             </ul>
           </li>
 
@@ -22,21 +33,9 @@
     </div>
   </section>
 
-  <section class="description" @fadeIn>
-    <div class="mat-h2">{{portfolio.description.title}}</div>
-    <p>{{portfolio.description.text}}</p>
-  </section>
-
-  <section class="action-button" @fadeIn>
-    <div fxLayout="row" fxLayoutAlign="space-evenly">
-      <a href="{{portfolio.demoUrl}}" target="_blank" mat-flat-button color="primary">Demo</a>
-      <a href="{{portfolio.gitUrl}}" target="_blank" mat-flat-button color="primary">Git</a>
-    </div>
-  </section>
-
-  <section class="technologies" @fadeIn>
-    <section class="skills" @fadeIn>
-      <h2>Technical Skills</h2>
+  <section class="technologies">
+    <div class="skills">
+      <h2 class="d-none">Technical Skills</h2>
       <div fxLayout="row">
         <div fxFlexAlign="center">
           <div class="icon"><i class="fa fa-code"></i></div>
@@ -66,23 +65,25 @@
             <span class="whitespace"></span>{{ot}}
         </ul>
       </div>
-    </section>
-  </section>
-
-  <section class="features" @fadeIn>
-    <div class="feature" *ngFor="let f of portfolio.features">
-      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="1rem" fxLayoutGap="2rem" fxLayoutAlign="left center">
-        <img [src]="f['imgUrl']">
-        <div class="description">
-          <div class="mat-h4 title">{{f['title']}}</div>
-          <p>{{f['text']}}</p>
-        </div>
-      </div>
     </div>
   </section>
 
-  <section @fadeIn>
-    <a class="back-button" mat-stroked-button color="primary" [routerLink]="'/portfolio'">Back</a>
+  <section class="demo-video">
+    <video controls>
+      <source [src]="portfolio.demoVideoUrl" type="video/MP4">
+      Your browser does not support the video tag.
+    </video>
   </section>
+
+  <section class="project-detail">
+    <div class="mat-h2">{{portfolio.projectDetail.header}}</div>
+    <p>{{portfolio.projectDetail.description}}</p>
+  </section>
+
+  <section class="action-button">
+
+      <a class="back-button" mat-button color="primary" [routerLink]="'/portfolio'">Back</a>
+  </section>
+
 
 </main>
