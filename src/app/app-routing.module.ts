@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { PortfolioDetailComponent } from './portfolios/portfolio-detail/portfolio-detail.component';
 import { ResumeComponent } from './resume/resume.component';
+import { PortfolioResolverService } from './services/portfolio.resolver';
 
 
 const routes: Routes = [
@@ -14,7 +15,13 @@ const routes: Routes = [
   { path: 'resume', component: ResumeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'portfolio', component: PortfoliosComponent },
-  { path: 'portfolio/:id', component: PortfolioDetailComponent},
+  {
+    path: 'portfolio/:id',
+    component: PortfolioDetailComponent,
+    resolve: {
+      portfolioItem: PortfolioResolverService
+    }
+  },
 
 ];
 

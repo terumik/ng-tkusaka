@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Education } from '../models/education.model';
 import { WorkExperience } from '../models/work-experience.model';
 import { Animations } from '../shared/animation';
 import { ProfileService } from '../services/profile.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-about',
@@ -10,7 +11,11 @@ import { ProfileService } from '../services/profile.service';
   styleUrls: ['./about.component.scss'],
   animations: [Animations.fadeIn, Animations.slideIn]
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, OnDestroy {
+
+  profileSub: Subscription;
+
+  overview: string[];
   frontendSkills: string[];
   backendSkills: string[];
   otherSkills: string[];
@@ -24,14 +29,20 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.frontendSkills = this.profileService.getFrontendSkills();
-    this.backendSkills = this.profileService.getBackendSkills();
-    this.otherSkills = this.profileService.getOtherSkills();
-
-    this.educations = this.profileService.getEducations();
-    this.workExperiences = this.profileService.getWorkExperience();
+    this.profileSub = this.profileService.getProfile().subscribe(
+      (data) => {
+        this.overview = data.overview;
+        this.frontendSkills = data.frontendSkills;
+        this.backendSkills = data.backendSkills;
+        this.otherSkills = data.otherSkills;
+        this.educations = data.educations;
+        this.workExperiences = data.workExperiences;
+      }
+    );
   }
 
-
+  ngOnDestroy(): void {
+    this.profileSub.unsubscribe();
+  }
 
 }

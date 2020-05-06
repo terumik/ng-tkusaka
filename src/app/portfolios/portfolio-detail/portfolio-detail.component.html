@@ -10,8 +10,10 @@
         <ul class="detail mat-small">
           <li>Client: {{portfolio.client}}</li>
           <li>Production Period: {{portfolio.workingPeriod.start | date: 'MMM yyyy'}} -
-            <span *ngIf="portfolio.workingPeriod.end == null">ongoing</span>
-            {{portfolio.workingPeriod.end | date: 'MMM yyyy'}}</li>
+
+            <span *ngIf="portfolio.workingPeriod.end.toString() === 'null';else elseBlock">ongoing</span>
+            <ng-template #elseBlock>{{portfolio.workingPeriod.end | date: 'MMM yyyy'}}</ng-template>
+          </li>
           <li>Responsibilities:
             <ul class="responsibilities">
               <li *ngFor="let r of portfolio.responsibilities">{{r}}</li>
@@ -77,7 +79,9 @@
 
   <section class="project-detail">
     <div class="mat-h2">{{portfolio.projectDetail.header}}</div>
-    <p>{{portfolio.projectDetail.description}}</p>
+    <p *ngFor="let paragraph of portfolio.projectDetail.description">
+      {{paragraph}}
+    </p>
   </section>
 
   <section class="action-button">

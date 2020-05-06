@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/services/portfolio.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Portfolio } from 'src/app/models/portfolio.model';
 import { ActivatedRoute } from '@angular/router';
 import { Animations } from 'src/app/shared/animation';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-portfolio-detail',
@@ -10,23 +10,25 @@ import { Animations } from 'src/app/shared/animation';
   styleUrls: ['./portfolio-detail.component.scss'],
   animations: [Animations.fadeIn]
 })
-export class PortfolioDetailComponent implements OnInit {
+export class PortfolioDetailComponent implements OnInit, OnDestroy {
 
+  portfolioSub: Subscription;
   portfolio: Portfolio;
 
-
   constructor(
-    private portfolioService: PortfolioService,
     private route: ActivatedRoute,
 
   ) { }
 
   ngOnInit(): void {
-    this.route.url.subscribe((url) => {
-      const portfolioId = url[1].path;
-      this.portfolio = this.portfolioService.getPortfolioById(+portfolioId);
-    });
+    this.portfolioSub = this.route.data.subscribe(
+      (data) => {
+        this.portfolio = data.portfolioItem;
+      });
+    }
 
+  ngOnDestroy(): void {
+    this.portfolioSub.unsubscribe();
   }
 
 }

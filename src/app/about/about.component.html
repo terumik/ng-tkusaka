@@ -8,17 +8,7 @@
         <img class="photo" src="../../assets/images/terumi.jpg" alt="Photo of Terumi Kusaka">
       </div>
       <div>
-        <p>
-          I am a Web Developer more than 2 years of experience focusing on creating inclusive websites.
-        </p>
-        <p>
-          My previous studies and experiences in community support service fields allow me to develop a strong sense of
-          how tools and systems have impacted on people's lifestyles.
-        </p>
-        <p>
-          My goal is to transfer my passion and skills to the web development so that I can empower people through
-          modern front-end and back-end technologies.
-        </p>
+        <p *ngFor="let o of overview">{{o}}</p>
       </div>
     </div>
     <div class="button-wrapper">
